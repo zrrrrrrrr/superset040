@@ -139,12 +139,9 @@ class HiveEngineSpec(PrestoEngineSpec):
             ttypes as patched_ttypes,
         )
 
-        from superset.db_engines import hive as patched_hive
-
         hive.TCLIService = patched_TCLIService
         hive.constants = patched_constants
         hive.ttypes = patched_ttypes
-        hive.Cursor.fetch_logs = patched_hive.fetch_logs
 
     @classmethod
     def get_all_datasource_names(
